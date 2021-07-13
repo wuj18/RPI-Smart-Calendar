@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<style>
+li{
+	list-style: none;
+}
+ul{
+	margin: 0;
+	padding: 0;
+}
+.calendar-container{
+	display: grid;
+	grid-template-columns: 50px auto;
+	grid-template-rows: auto;
+	gap: 1px 1px;
+	grid-template-areas: 
+	". header"
+	"timeslots-container main";
+}
+.weekdays,
+.daynumbers{
+	display:grid;
+	grid-template-columns: repeat(7, 1fr);
+}
+.daynumbers{
+	min-height: 2em;
+}
+.weekdays{
+	background: lightblue;
+}
+.header{
+	background: gray;
+	grid-area: header;
+}
+.timeslots-container{
+	background:lightgray;
+	grid-area: timeslots-container;
+	justify-content: left;
+}
+.timeslots{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
+.timeslots li{
+	min-height: 60px;
+}
+.timeslots li::after{
+	content:"";
+	position: absolute;
+	left:10px;
+	width: 100%;
+	height:1px;
+	background: lightgray;
+	z-index: 1;
+}
+.event-container{
+	display:grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(96, 1fr);
+	grid-area:main;
+	position:relative;
+}
+.slot{
+	position:absolute;
+	background:darkslategray;
+	border-radius:5px;
+	z-index:5;
+	color:white;
+	font-size:12px;
+}
+.slot-1{
+	height:30px;
+	grid-row:19;
+	grid-column:2;
+}
+
+</style>
+</head>
+<body>
+ <div class="calendar-container">
+    <div class="header">
+      <ul class="weekdays">
+        <li>Su</li>
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+        <li>Sa</li>
+      </ul>
+
+      <ul class="daynumbers">
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+      </ul>
+    </div>
+
+    <div class="timeslots-container">
+      <ul class="timeslots">
+      	<li>12am</li>
+        <li>1am</li>
+      	<li>2am</li>
+        <li>3am</li>
+        <li>4am</li>
+        <li>5am</li>
+      	<li>6am</li>
+        <li>7am</li>
+        <li>8am</li>
+        <li>9am</li>
+        <li>10am</li>
+        <li>11am</li>
+        <li>12pm</li>
+        <li>1pm</li>
+        <li>2pm</li>
+        <li>3pm</li>
+        <li>4pm</li>
+        <li>5pm</li>
+        <li>6pm</li>
+        <li>7pm</li>
+        <li>8pm</li>
+        <li>9pm</li>
+        <li>10pm</li>
+        <li>11pm</li>
+      </ul>
+    </div>
+
+    <div class="event-container">
+    	<div class="slot slot-1">
+    		<div>
+    		<span> Event A</span>
+    		</div>
+    	</div>
+    </div>
+
+  </div>
+</body>
+</html>
